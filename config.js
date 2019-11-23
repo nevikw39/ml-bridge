@@ -4,6 +4,12 @@ let json = JSON.parse(fs.readFileSync(file));
 
 module.exports = {
     get: function (key) {
+        if (Array.isArray(key))
+        {
+            let l = json;
+            key.forEach(i => l = l[i]);
+            return l;
+        }
         return json[key];
     },
     set: function (key, val) {

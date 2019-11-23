@@ -3,9 +3,16 @@
   "version": "0.1.0",
   "description": "A bridge between FB Messenger and LINE.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nevikw39/ml-bridge.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "nevikw39",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "libfb": "^2.3.5"
+  }
 }

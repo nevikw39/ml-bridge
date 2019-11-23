@@ -1,0 +1,11 @@
+{
+  "name": "ml-bridge",
+  "version": "0.1.0",
+  "description": "A bridge between FB Messenger and LINE.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nevikw39",
+  "license": "ISC"
+}

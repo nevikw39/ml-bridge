@@ -13,6 +13,8 @@
   "author": "nevikw39",
   "license": "ISC",
   "dependencies": {
-    "libfb": "^2.3.5"
+    "config": "^3.2.4",
+    "libfb": "^2.3.5",
+    "linebot": "^1.5.3"
   }
 }

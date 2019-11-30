@@ -35,9 +35,20 @@ line.on('join', event => {
 
 line.on('message', event => {
     console.debug(event);
-    const mid = config.lm[event.source.groupId];
+    let mid = config.lm[event.source.groupId];
+    const msg = event.message.text;
+    switch (msg.substring(0, msg.indexOf(' '))) {
+        case "/eval":
+            line.reply(event.replyToken, { type: "text", text: JSON.stringify(eval(msg.substring(msg.indexOf(' ')))) });
+            return;
+        case "/connect":
+            config.ml[msg.substring(msg.indexOf(' '))] = event.source.groupId;
+            config.lm[event.source.groupId] = msg.substring(msg.indexOf(' '));
+            return;
+    }
     if (event.message.type != "text" || mid == undefined) return;
-    messenger.sendMessage(mid, event.message.text).catch(err => console.error(err));
+    messenger.sendPresenceState(mid);
+    messenger.sendMessage(mid, msg).catch(err => console.error(err));
 });
 
 line.listen('/linewebhook', 3000, function () {

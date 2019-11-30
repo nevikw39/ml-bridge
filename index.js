@@ -5,7 +5,7 @@ const config = require('config');
 
 
 
-const messenger = fs.existsSync('session.json') ? new Client({ session: JSON.parse(fs.readFileSync('session.json', "utf8")) }) : new Client();
+const messenger = new Client(fs.existsSync('session.json') ? { session: JSON.parse(fs.readFileSync('session.json', "utf8")) } : {});
 
 messenger.login(config.messenger.usr, config.messenger.pwd).then(() => {
 
